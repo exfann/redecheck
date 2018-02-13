@@ -80,7 +80,8 @@ public class Tool {
         System.setProperty("webdriver.chrome.driver", current + "/../resources/chromedriver");
         System.setProperty("webdriver.opera.driver", current + "/../resources/operadriver");
         System.setProperty("webdriver.gecko.driver", current + "/../resources/geckodriver");
-        
+	//System.setProperty("webdriver.gecko.driver", "/home/fanne/redecheck/resources/geckodriver");
+      
         clArgs = args;
         new JCommander(clp, clArgs);
         oracle = clp.oracle;

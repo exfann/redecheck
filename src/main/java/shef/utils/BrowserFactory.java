@@ -1,9 +1,12 @@
 package shef.utils;
 
+import java.io.File;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.FirefoxBinary;
 import org.openqa.selenium.opera.OperaDriver;
 //import org.openqa.selenium.phantomjs.PhantomJSDriver;
 //import org.openqa.selenium.phantomjs.PhantomJSDriverService;
@@ -20,7 +23,11 @@ public class BrowserFactory {
         WebDriver webDriver = null;
         // Set up the web driver depending on the browser being used.
         if (browser.equals("firefox")) {
-            webDriver = new FirefoxDriver();
+            FirefoxBinary binary = new FirefoxBinary();  
+            File firefoxProfileFolder = new File("/home/fanne/redechecktest/proftest");
+            FirefoxProfile profile = new FirefoxProfile(firefoxProfileFolder);
+         //   profile.setAcceptUntrustedCertificates(true);
+            webDriver = new FirefoxDriver(binary, profile);
         } else if (browser.equals("chrome")) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("test-type");
