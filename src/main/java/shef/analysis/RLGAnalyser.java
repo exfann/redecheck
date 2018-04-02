@@ -1255,7 +1255,7 @@ public class RLGAnalyser {
                 String mutant = "index-" + ts;
                 //                    splits[1];
                 try {
-                    outputFile = new File(new File(".").getCanonicalPath() + "/../reports/" + webpage + "/" + mutant + "/");
+                    outputFile = new File(new File(".").getCanonicalPath() + "/reports/" + webpage + "/" + mutant + "/");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -1264,7 +1264,7 @@ public class RLGAnalyser {
                 String webpage = splits[1];
                 String mutant = ts;
                 try {
-                    outputFile = new File(new java.io.File(".").getCanonicalPath() + "/../reports/" + webpage + "/" + mutant + "/");
+                    outputFile = new File(new java.io.File(".").getCanonicalPath() + "/reports/" + webpage + "/" + mutant + "/");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -1273,7 +1273,7 @@ public class RLGAnalyser {
                 String webpage = splits[1];
                 String mutant = ts;
                 try {
-                    outputFile = new File(new File(".").getCanonicalPath() + "/../reports/" + webpage + "/" + mutant + "/");
+                    outputFile = new File(new File(".").getCanonicalPath() + "/reports/" + webpage + "/" + mutant + "/");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

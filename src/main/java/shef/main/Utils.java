@@ -83,7 +83,7 @@ public class Utils {
         return image;
     }
 
-    public static File getOutputFilePath(String url, String timeStamp, int errorID) {
+    public static File getOutputFilePath(String url, String timeStamp, int errorID, int hi, int low) {
 
         File output = null;
         if (!url.contains("www.") && (!url.contains("http://"))) {
@@ -92,7 +92,7 @@ public class Utils {
             String mutant = "index-" + timeStamp;
             //                    splits[1];
             try {
-                output = new File(new File(".").getCanonicalPath() + "/../reports/" + webpage + "/" + mutant + "/fault" + errorID + "/");
+                output = new File(new File(".").getCanonicalPath() + "/reports/" + webpage + "/" + mutant + "/fault" + errorID + "**" + hi + "**"+ low +"/");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -101,7 +101,7 @@ public class Utils {
             String webpage = splits[1];
             String mutant = timeStamp;
             try {
-                output = new File(new java.io.File(".").getCanonicalPath() + "/../reports/" + webpage + "/" + mutant + "/fault" + errorID + "/");
+                output = new File(new java.io.File(".").getCanonicalPath() + "/reports/" + webpage + "/" + mutant + "/fault" + errorID + "**" + hi + "**" + low + "/");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -110,7 +110,7 @@ public class Utils {
             String webpage = splits[1];
             String mutant = timeStamp;
             try {
-                output = new File(new File(".").getCanonicalPath() + "/../reports/" + webpage + "/" + mutant + "/fault" + errorID + "/");
+                output = new File(new File(".").getCanonicalPath() + "/reports/" + webpage + "/" + mutant + "/fault" + errorID + "**" + hi + "**" + low + "/");
             } catch (IOException e) {
                 e.printStackTrace();
             }

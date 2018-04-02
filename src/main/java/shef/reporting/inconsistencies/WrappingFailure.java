@@ -77,7 +77,7 @@ public class WrappingFailure extends ResponsiveLayoutFailure {
             }
             g2d.dispose();
             try {
-                File output = Utils.getOutputFilePath(url, timeStamp, errorID);
+                File output = Utils.getOutputFilePath(url, timeStamp, errorID, coords1[1], coords1[3]);
                 FileUtils.forceMkdir(output);
                 ImageIO.write(img, "png", new File(output + "/wrappingWidth" + captureWidth + ".png"));
             } catch (IOException e) {

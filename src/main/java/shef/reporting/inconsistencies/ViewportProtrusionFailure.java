@@ -73,7 +73,7 @@ public class ViewportProtrusionFailure extends ResponsiveLayoutFailure {
             g2d.drawRect(coords2[0], coords2[1], coords2[2] - coords2[0], coords2[3] - coords2[1]);
 
             g2d.dispose();
-            File output = Utils.getOutputFilePath(url, timeStamp, errorID);
+            File output = Utils.getOutputFilePath(url, timeStamp, errorID, coords[1], coords[3]);
             FileUtils.forceMkdir(output);
             ImageIO.write(img, "png", new File(output+ "/viewportOverflowWidth" + captureWidth + ".png"));
         } catch (IOException e) {

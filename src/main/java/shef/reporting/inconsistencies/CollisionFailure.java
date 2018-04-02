@@ -35,7 +35,13 @@ public class CollisionFailure extends ResponsiveLayoutFailure {
      * @return String describing the failure for either console or text file printing
      */
     public String toString() {
-        return "ELEMENTS " + constraint.getNode1().getXpath() + " AND " + constraint.getNode2().getXpath() + " ARE OVERLAPPING BETWEEN " + constraint.getMin() + " AND " + constraint.getMax();
+	//int captureW = (constraint.getMin()+constraint.getMax())/2;
+	//HashMap<Integer, LayoutFactory> lfm = new HashMap<>();
+	//LayoutFactory layo = lfm.get(captureW);
+	//Element ele = layo.getElementMap().get(constraint.getNode1().getXpath());
+	//int[] coordi = ele.getBoundingCoords();
+        //return "*"+ coordi[2] +"* ELEMENTS " + constraint.getNode1().getXpath() + " AND " + constraint.getNode2().getXpath() + " ARE OVERLAPPING BETWEEN " + constraint.getMin() + " AND " + constraint.getMax();
+	return "ELEMENTS " + constraint.getNode1().getXpath() + " AND " + constraint.getNode2().getXpath() + " ARE OVERLAPPING BETWEEN " + constraint.getMin() + " AND " + constraint.getMax();
     }
 
     /**
@@ -76,7 +82,7 @@ public class CollisionFailure extends ResponsiveLayoutFailure {
             g2d.dispose();
 
             // Set up the output file
-            File output = Utils.getOutputFilePath(url, timeStamp, errorID);
+            File output = Utils.getOutputFilePath(url, timeStamp, errorID, coords1[1], coords1[3]);
 
             // Make sure the output directory exists
             FileUtils.forceMkdir(output);

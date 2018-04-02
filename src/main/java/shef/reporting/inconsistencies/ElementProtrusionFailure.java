@@ -52,7 +52,13 @@ public class ElementProtrusionFailure extends ResponsiveLayoutFailure {
 
     public String toString() {
 //        if (ofCon != null) {
-            return overflowed.getXpath() + " OVERFLOWED ITS PARENT BETWEEN " + ofCon.getMin() + " AND " + ofCon.getMax() + "\n\t" + ofCon + "\n\t" + match;
+	//int captureW = (ofCon.getMin()+ofCon.getMax())/2;
+	//HashMap<Integer, LayoutFactory> lfm = new HashMap<>();
+	//LayoutFactory layo = lfm.get(captureW);
+	//Element ele = layo.getElementMap().get(ofCon.getNode1().getXpath());
+	//int[] coordi = ele.getBoundingCoords();
+        //return overflowed.getXpath() + " OVERFLOWED ITS PARENT BETWEEN " + ofCon.getMin() + " AND " + ofCon.getMax() + "\n\t" + ofCon + "\n\t" + match + "*" + coordi[1] + "* ";
+	return overflowed.getXpath() + " OVERFLOWED ITS PARENT BETWEEN " + ofCon.getMin() + " AND " + ofCon.getMax() + "\n\t" + ofCon + "\n\t" + match;
 //        } else {
 //            String result = "OVERFLOWING ELEMENT ERROR: ";
 //            result += "\n" + intendedParent.getXpath() + " was the intended parent of " + overflowed.getXpath();
@@ -115,7 +121,7 @@ public class ElementProtrusionFailure extends ResponsiveLayoutFailure {
 
 
             // Set up the output file
-            File output = Utils.getOutputFilePath(url, timeStamp, errorID);
+            File output = Utils.getOutputFilePath(url, timeStamp, errorID, coords1[1], coords1[3]);
 
             // Make sure the output directory exists
             FileUtils.forceMkdir(output);
