@@ -5,6 +5,50 @@ the process of testing the layouts of responsive (i.e., "mobile ready") web site
 currently available, performing adequate quality assurance on a sufficient range of devices is extremely difficult, if
 not impossible. ReDeCheck extracts the layout of a web page at a wide variety of viewport widths, from smartphones to desktops, then analyses the layout behaviour found to detect common RWD layout issues, such as overlapping elements, elements overflowing their containers or the viewport, and incongruous wrapping elements. Since it is important to have a high-quality mobile-ready web site, ReDeCheck makes responsive web testing both efficient and effective!
 
+## The following changes have been made to this tool:
+
+### In src/main/java/shef/main/Tool.java
+
+Line 83 has been updated to point to the geckodriver on my device. This will need to be updated for a new user.
+
+### In src/main/java/shef/utils/BrowserFactory.java
+
+Lines 3, 8, and 9 have been added in order to import new packages. These are `java.io.File`, `org.openqa.selenium.firefox.FirefoxProfile`, and `org.openqa.selenium.firefox.FirefoxBinary`.
+
+Lines 26-30 have been added. The path to the custom profile will need to be updated for a new user. In addition, if a custom profile is not necessary, the lines can be removed and replaced with 
+
+`webDriver = new FirefoxDriver();`
+
+This was done in order to allow a custom Firefox profile to be run rather than the default.
+
+### In src/main/java/shef/analysis/RLGAnalyser.java
+
+Lines 1258, 1267, and 1276 have been modified to point to the directory in which the program is being run from. This is so that the reports would be stored in the bot's directory.
+
+### In src/main/java/shef/main/Utils.java
+
+The `getOutputFilePath(String url, String timeStamp, int errorID)` has been changed to `getOutputFilePath(String url, String timeStamp, int errorID, int hi, int low)`. In addition, lines 95, 104, and 113 have been updated to include the new variables `hi` and `low` as well as add `**` in between `errorID` and `hi`, and `hi` and `low`.
+
+### In src/main/java/shef/reporting/inconsistencies/CollisionFailure.java
+
+Line 49 has been updated to pass in `coords1[1]` and `coords1[3]` into the `getOutputFilePath` function.
+
+### In src/main/java/shef/reporting/inconsistencies/ElementProtrusionFailure.java
+
+Line 118 has been updated to pass in `coords1[1]` and `coords1[3]` into the `getOutputFilePath` function.
+
+### In src/main/java/shef/reporting/inconsistencies/SmallRangeFailure.java
+
+Line 67 has been updated to pass in `coords1[1]` and `coords1[3]` into the `getOutputFilePath` function.
+
+### In src/main/java/shef/reporting/inconsistencies/ViewportProtrusionFailure.java
+
+Line 76 has been updated to pass in `coords[1]` and `coords[3]` into the `getOutputFilePath` function.
+
+### In src/main/java/shef/reporting/inconsistencies/WrappingFailure.java
+
+Line 80 has been updated to pass in `coords1[1]` and `coords1[3]` into the `getOutputFilePath` function.
+
 ## Installing Maven
 
 The ReDeCheck project has been implemented using Maven, a build automation tool for projects programmed in the Java
